@@ -1,0 +1,13 @@
+.venv
+# Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Environments
+.env
+venv/
+env/
+# add other virtual environments you might use, e.g.:
+# .venv/
+*.sqlite3
