@@ -88,22 +88,22 @@ WSGI_APPLICATION = 'dreamdwell.wsgi.app'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': config('dbname'),
-#         'USER': config('db_user'),
-#         'PASSWORD': config('db_password'),
-#         'HOST': config('db_host'),
-#         'PORT': config('db_port')
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('dbname'),
+        'USER': config('db_user'),
+        'PASSWORD': config('db_password'),
+        'HOST': config('db_host'),
+        'PORT': config('db_port')
+    }
+}
 
 
 # Password validation
@@ -170,6 +170,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10,
 }
 
