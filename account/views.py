@@ -55,7 +55,7 @@ def initiate_payement(request):
         post_body['shipping_method'] = "NO"
         post_body['multi_card_name'] = ""
         post_body['num_of_item'] = 1
-        post_body['product_name'] = "House Rent"
+        post_body['product_name'] = "DreamDwell Rent"
         post_body['product_category'] = "Rent"
         post_body['product_profile'] = "general"
 

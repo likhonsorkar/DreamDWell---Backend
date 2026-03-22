@@ -183,8 +183,8 @@ SIMPLE_JWT = {
 
 DJOSER = {
     'EMAIL_FRONTEND_PROTOCOL': config('EMAIL_FRONTEND_PROTOCOL', default='https'),
-    'EMAIL_FRONTEND_DOMAIN': config('EMAIL_FRONTEND_DOMAIN', default='house-for-rent-react-frontend.vercel.app'),
-    'EMAIL_FRONTEND_SITE_NAME': config('EMAIL_FRONTEND_SITE_NAME', default='dreamdwell'),
+    'EMAIL_FRONTEND_DOMAIN': config('EMAIL_FRONTEND_DOMAIN', default='dreamdwell-frontend.vercel.app'),
+    'EMAIL_FRONTEND_SITE_NAME': config('EMAIL_FRONTEND_SITE_NAME', default='DreamDwell'),
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': 'activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
@@ -216,6 +216,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:5174"
 ]
+
+# CSRF and Session Security for Production
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
 CSRF_TRUSTED_ORIGINS = [
     "https://dreamdwell-frontend.vercel.app",
     "https://dreamdwell-backend-63hh.onrender.com",
