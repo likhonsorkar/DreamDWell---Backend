@@ -217,12 +217,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174"
 ]
 
-# CSRF and Session Security for Production
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
-
 CSRF_TRUSTED_ORIGINS = [
     "https://dreamdwell-frontend.vercel.app",
     "https://dreamdwell-backend-63hh.onrender.com",
