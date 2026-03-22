@@ -211,7 +211,8 @@ SWAGGER_SETTINGS = {
 # }
 
 CORS_ALLOWED_ORIGINS = [
-    "https://house-for-rent-react-frontend.vercel.app",
+    "https://dreamdwell-frontend.vercel.app"
+    "https://dreamdwell-backend-63hh.onrender.com",
     "http://localhost:5173",
     "http://localhost:5174"
 ]
