@@ -21,18 +21,24 @@ from rentals.serializers import (
     RentRequestSerializer
 )
 from account.models import Invoice
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, filters
+
 class AdvertisementViewSet(ModelViewSet):
     serializer_class = HouseAdvertisementSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     pagination_class = PageNumberPagination
     filterset_fields = ['category', 'bedrooms', 'bathrooms']
+    search_fields = ['title', 'description', 'area', 'address']
+    ordering_fields = ['rent', 'created_at']
     permission_classes = [IsOwnerOrReadOnly]
+
     def get_queryset(self):
         user = self.request.user
+        queryset = HouseAdvertisement.objects.prefetch_related('images', 'reviews')
+        
         if user.is_authenticated and user.is_staff:
-            return HouseAdvertisement.objects.all()
-        return HouseAdvertisement.objects.filter(is_approved=True)
+            return queryset.all()
+        return queryset.filter(is_approved=True)
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
     @swagger_auto_schema(operation_summary="List all approved house advertisements",
