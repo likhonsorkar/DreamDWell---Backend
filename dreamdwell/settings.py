@@ -146,11 +146,11 @@ STATIC_FILE_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 #Email Setup
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER') 
 
 AUTH_USER_MODEL = 'users.User'
@@ -182,9 +182,9 @@ SIMPLE_JWT = {
 }
 
 DJOSER = {
-    'PROTOCOL': config('EMAIL_FRONTEND_PROTOCOL', default='https'),
-    'DOMAIN': config('EMAIL_FRONTEND_DOMAIN', default='dreamdwell-frontend.vercel.app'),
-    'SITE_NAME': config('EMAIL_FRONTEND_SITE_NAME', default='DreamDwell'),
+    'EMAIL_FRONTEND_PROTOCOL': config('EMAIL_FRONTEND_PROTOCOL', default='https'),
+    'EMAIL_FRONTEND_DOMAIN': config('EMAIL_FRONTEND_DOMAIN', default='dreamdwell-frontend.vercel.app'),
+    'EMAIL_FRONTEND_SITE_NAME': config('EMAIL_FRONTEND_SITE_NAME', default='DreamDwell'),
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': 'activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
