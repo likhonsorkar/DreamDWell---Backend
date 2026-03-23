@@ -28,4 +28,4 @@ class UserSerializer(serializers.ModelSerializer):
 class UserCreateSerializers(DjoserUserCreateSerializer):
     class Meta(DjoserUserCreateSerializer.Meta):
         model = User
-        fields = ['id', 'first_name', 'last_name', 'email', 'address', 'phone', 'password']
+        fields = ('id', 'email', 'first_name', 'last_name', 'address', 'phone', 'password')

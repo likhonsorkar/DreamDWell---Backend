@@ -171,6 +171,16 @@ class HouseImagesViewset(ModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
 
+    @swagger_auto_schema(operation_summary="Update an image",
+                         operation_description="Updates an image for a specific house advertisement. Only the owner of the advertisement can perform this action.")
+    def update(self, request, *args, **kwargs):
+        return super().update(request, *args, **kwargs)
+
+    @swagger_auto_schema(operation_summary="Partially update an image",
+                         operation_description="Partially updates an image. Only the owner of the advertisement can perform this action.")
+    def partial_update(self, request, *args, **kwargs):
+        return super().partial_update(request, *args, **kwargs)
+
     @swagger_auto_schema(operation_summary="Delete an image",
                          operation_description="Deletes an image. Only the owner of the advertisement can perform this action.")
     def destroy(self, request, *args, **kwargs):
