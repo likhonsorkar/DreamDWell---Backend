@@ -182,9 +182,9 @@ SIMPLE_JWT = {
 }
 
 DJOSER = {
-    'EMAIL_FRONTEND_PROTOCOL': config('EMAIL_FRONTEND_PROTOCOL', default='https'),
-    'EMAIL_FRONTEND_DOMAIN': config('EMAIL_FRONTEND_DOMAIN', default='dreamdwell-frontend.vercel.app'),
-    'EMAIL_FRONTEND_SITE_NAME': config('EMAIL_FRONTEND_SITE_NAME', default='DreamDwell'),
+    'PROTOCOL': config('EMAIL_FRONTEND_PROTOCOL', default='https'),
+    'DOMAIN': config('EMAIL_FRONTEND_DOMAIN', default='dreamdwell-frontend.vercel.app'),
+    'SITE_NAME': config('EMAIL_FRONTEND_SITE_NAME', default='DreamDwell'),
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': 'activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
