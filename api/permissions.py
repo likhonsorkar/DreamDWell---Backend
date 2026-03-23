@@ -41,15 +41,24 @@ class HouseAdsOwner(BasePermission):
     def has_permission(self, request, view):
         if request.method in SAFE_METHODS:
             return True
-        house_id = view.kwargs.get('ads_pk')
-        if not house_id:
+        if not request.user or not request.user.is_authenticated:
             return False
-        house = get_object_or_404(HouseAdvertisement, id=house_id)
-        return house.owner == request.user
+        if view.action == 'create':
+            house_id = view.kwargs.get('ads_pk')
+            if not house_id:
+                return False
+            house = get_object_or_404(HouseAdvertisement, id=house_id)
+            return house.owner == request.user
+        return True
+
     def has_object_permission(self, request, view, obj):
         if request.user.is_staff:
             return True
-        return obj.advertisement.owner == request.user
+        if hasattr(obj, 'advertisement'):
+            return obj.advertisement.owner == request.user
+        if hasattr(obj, 'owner'):
+            return obj.owner == request.user
+        return False
 class IsInvoiceOwnerOrPayer(BasePermission):
     def has_object_permission(self, request, view, obj):
         return request.user == obj.payer or request.user == obj.created_by
