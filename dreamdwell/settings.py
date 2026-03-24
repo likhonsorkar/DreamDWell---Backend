@@ -213,6 +213,7 @@ SWAGGER_SETTINGS = {
 CORS_ALLOWED_ORIGINS = [
     "https://dreamdwell-frontend.vercel.app",
     "https://dreamdwell-backend-63hh.onrender.com",
+    "https://dream-d-well-backend.vercel.app",
     "http://localhost:5173",
     "http://localhost:5174"
 ]
@@ -220,6 +221,7 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     "https://dreamdwell-frontend.vercel.app",
     "https://dreamdwell-backend-63hh.onrender.com",
+    "https://dream-d-well-backend.vercel.app",
     "http://localhost:5173",
     "http://localhost:5174"
 ]
